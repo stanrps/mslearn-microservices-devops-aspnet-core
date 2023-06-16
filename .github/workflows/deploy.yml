@@ -31,10 +31,10 @@ jobs:
 
     - name: Deploy
       run: >
-        helm upgrade 1.2.0 --force
+        helm upgrade release2
         --install eshoplearn-coupon
         --namespace=default 
         --set registry=${{ secrets.REGISTRY_LOGIN_SERVER }} 
         --set imagePullPolicy=Always 
         --set host=${{ secrets.IP_ADDRESS }} 
-        --set protocol=http './deploy/k8s/helm-simple/coupon'
+        --set protocol=http './deploy/k8s/helm-simple/coupon' --force
